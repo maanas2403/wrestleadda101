@@ -1,0 +1,231 @@
+/* Global styles for the body */
+body {
+  font-family: 'Bangers', sans-serif;
+  background-image: url('background.jpg'); /* Set your background image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: #fff;
+}
+
+/* Page title with neon glow effect */
+.page-title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 55px;
+  font-family: 'Bangers', sans-serif;
+  color: #fff;
+  text-shadow: 
+  0 0 5px rgba(255, 0, 0, 0.7),       /* Soft red glow */
+    0 0 10px rgba(255, 255, 0, 0.7),    /* Soft yellow glow */
+    0 0 20px rgba(0, 255, 0, 0.7),      /* Soft green glow */
+    0 0 30px rgba(128, 0, 128, 0.7),    /* Soft purple glow */
+    0 0 40px rgba(255, 0, 0, 0.7),      /* Intense red glow */
+    0 0 50px rgba(255, 255, 0, 0.7),    /* Intense yellow glow */
+    0 0 75px rgba(0, 255, 0, 0.7),      /* Intense green glow */
+    0 0 100px rgba(128, 0, 128, 0.7);   /* Intense purple glow */
+}
+
+/* Container for the wrestlers (Grid layout with neon hover effect) */
+.wrestlers-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Style for each wrestler box (Darker background with neon hover effect) */
+.wrestler-box {
+  background-color: rgba(30, 30, 30, 0.9); /* Dark background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+  will-change: transform, box-shadow, background-color;
+}
+
+.wrestler-box img {
+  max-height: 200px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon glow */
+  display: block; /* Prevent inline block rendering issues */
+  will-change: transform, box-shadow; /* Optimize rendering */
+  margin: 0 auto 10px;
+}
+
+.wrestler-box h3 {
+  margin-top: 10px;
+  font-size: 2em;
+  color: #fff;
+  text-shadow: 
+  0 0 5px rgba(0, 255, 255, 0.7),      /* Soft blue glow */
+  0 0 10px rgba(0, 255, 255, 0.7),     /* Stronger blue glow */
+  0 0 20px rgba(0, 255, 255, 0.7),     /* More intense blue glow */
+  0 0 30px rgba(0, 255, 255, 0.7),     /* Even stronger blue glow */
+  0 0 40px rgba(0, 255, 255, 0.7),     /* Intense neon blue glow */
+  0 0 50px rgba(0, 255, 255, 0.7),     /* Larger spread of the glow */
+  0 0 75px rgba(0, 255, 255, 0.7);     /* Wide, glowing effect */
+}
+
+.wrestler-box:hover {
+  background-color: rgba(30, 30, 30, 0.95); /* Slightly darker on hover */
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 1); /* Neon glow on hover */
+}
+
+/* Details for the wrestler information box (Darker background with neon effect) */
+#wrestler-detail {
+  display: none;
+  background-color: rgba(20, 20, 20, 0.95); /* Darker semi-transparent background */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 80%;
+  max-width: 1000px;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.7);
+  z-index: 1000;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Neon text for wrestler details */
+.wrestler-info h2 {
+  font-size: 2.5em;
+  color: #fff;
+text-shadow: 
+  0 0 5px rgba(255, 0, 0, 0.7),      /* Soft red glow */
+  0 0 10px rgba(255, 0, 0, 0.7),     /* Stronger red glow */
+  0 0 20px rgba(255, 0, 0, 0.7),     /* More intense red glow */
+  0 0 30px rgba(255, 0, 0, 0.7),     /* Even stronger red glow */
+  0 0 40px rgba(255, 0, 0, 0.7),     /* Intense neon red glow */
+  0 0 50px rgba(255, 0, 0, 0.7),     /* Larger spread of the glow */
+  0 0 75px rgba(255, 0, 0, 0.7);     /* Wide, glowing effect */
+  margin-bottom: 20px;
+}
+
+.wrestler-info p {
+  color: #fff;
+text-shadow: 
+  0 0 5px rgba(255, 255, 0, 0.6),      /* Soft yellow glow */
+  0 0 10px rgba(255, 255, 0, 0.6),     /* Stronger yellow glow */
+  0 0 20px rgba(255, 255, 0, 0.6),     /* More intense yellow glow */
+  0 0 30px rgba(255, 255, 0, 0.6),     /* Even stronger yellow glow */
+  0 0 40px rgba(255, 255, 0, 0.6),     /* Intense neon yellow glow */
+  0 0 50px rgba(255, 255, 0, 0.6),     /* Larger spread of the glow */
+  0 0 75px rgba(255, 255, 0, 0.6);     /* Wide, glowing effect */
+  margin: 10px 0;
+  font-size: 1.7em;
+}
+
+.wrestler-right strong {
+  font-weight: bold;
+}
+
+/* Close button styling (Neon glow on hover) */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff007f;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.close-button:hover {
+  color: #fff;
+  box-shadow: 
+  0 0 5px rgba(0, 255, 255, 0.7),      /* Soft blue glow */
+  0 0 10px rgba(0, 255, 255, 0.7),     /* Stronger blue glow */
+  0 0 20px rgba(0, 255, 255, 0.7),     /* More intense blue glow */
+  0 0 30px rgba(0, 255, 255, 0.7),     /* Even stronger blue glow */
+  0 0 40px rgba(0, 255, 255, 0.7),     /* Intense neon blue glow */
+  0 0 50px rgba(0, 255, 255, 0.7),     /* Larger spread of the glow */
+  0 0 75px rgba(0, 255, 255, 0.7);     /* Wide, glowing effect */
+}
+
+/* Layout for wrestler name and image (Flexbox with Neon) */
+.wrestler-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrestler-left {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.wrestler-left img {
+
+  max-width: 350px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Neon glow */
+}
+
+.wrestler-right {
+  flex: 2;
+  text-align: left;
+  overflow-y: visible;
+}
+
+/* Mobile View - Stack elements vertically */
+@media (max-width: 768px) {
+  #wrestler-detail {
+    max-height: 95%; /* Ensure the modal doesn't exceed viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Add padding for better spacing */
+  }
+
+  .wrestler-info {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    text-align: center;
+  }
+
+  .wrestler-info h2 {
+    font-size: 2.5em; /* Adjust font size for mobile */
+  }
+
+  .wrestler-info p {
+    font-size: 1.7em; /* Adjust paragraph size */
+  }
+
+  .wrestler-left {
+    padding-right: 0;
+    margin-bottom: 10px; /* Add space between image and text */
+  }
+
+  .wrestler-left img {
+    max-width: 200px; /* Adjust image size for smaller screens */
+  }
+
+  .wrestler-right {
+    width: 90%;
+    text-align: center; /* Center text in mobile view */
+  }
+
+  /* Adjust the page title on mobile */
+  .page-title {
+    font-size: 55px; /* Smaller title size for mobile */
+  }
+}
