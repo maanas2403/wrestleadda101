@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const wrestlersContainer = document.getElementById('wrestlers-container');
   const wrestlerDetail = document.getElementById('wrestler-detail');
+  const searchInput = document.getElementById('search-bar'); // Reference to the search bar
+  let allWrestlers = []; // To store the full list of wrestlers
   let audioElement = null; // Keep a reference to the audio element
 
   // Function to clean up JSON string
@@ -21,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
     .then(response => response.text()) // Read as plain text
     .then(data => {
       const cleanData = cleanJSON(data);
-      const wrestlers = JSON.parse(cleanData);
-      wrestlers.sort((a, b) => a['Name'].localeCompare(b['Name']));
-      displayWrestlers(wrestlers);
+      allWrestlers = JSON.parse(cleanData); // Store the full list
+      allWrestlers.sort((a, b) => a['Name'].localeCompare(b['Name']));
+      displayWrestlers(allWrestlers);
     })
     .catch(error => console.error('Error loading or cleaning wrestlers data:', error));
 
@@ -82,4 +84,13 @@ document.addEventListener("DOMContentLoaded", function () {
       audioElement = null; // Clear the reference
     }
   }
+
+  // Event listener for the search input
+  searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredWrestlers = allWrestlers.filter(wrestler => 
+      wrestler['Name'].toLowerCase().includes(searchTerm)
+    );
+    displayWrestlers(filteredWrestlers);
+  });
 });
