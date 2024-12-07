@@ -28,6 +28,68 @@ body {
     0 0 75px rgba(0, 255, 0, 0.7),      /* Intense green glow */
     0 0 100px rgba(128, 0, 128, 0.7);   /* Intense purple glow */
 }
+/* Neon style for search bar */
+/* Container to center the search bar */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Adjust height to control spacing */
+  margin: 20px 0;
+}
+
+/* Neon style for search bar */
+#search-bar {
+  width: 50%; /* Adjust width as needed */
+  padding: 10px 20px;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: rgba(30, 30, 30, 0.9); /* Dark background */
+  font-family: 'Bangers', sans-serif;
+  border: 2px solid rgba(255, 0, 0);
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.7),      /* Soft red glow */
+  0 0 10px rgba(255, 0, 0, 0.7),     /* Stronger red glow */
+  0 0 20px rgba(255, 0, 0, 0.7),     /* More intense red glow */
+  0 0 30px rgba(255, 0, 0, 0.7),     /* Even stronger red glow */
+  0 0 40px rgba(255, 0, 0, 0.7),     /* Intense neon red glow */
+  0 0 50px rgba(255, 0, 0, 0.7),     /* Larger spread of the glow */
+  0 0 75px rgba(255, 0, 0, 0.7);     /* Wide, glowing effect */
+  text-shadow: 
+  0 0 5px rgba(0, 255, 255, 0.7),      /* Soft blue glow */
+  0 0 10px rgba(0, 255, 255, 0.7),     /* Stronger blue glow */
+  0 0 20px rgba(0, 255, 255, 0.7),     /* More intense blue glow */
+  0 0 30px rgba(0, 255, 255, 0.7),     /* Even stronger blue glow */
+  0 0 40px rgba(0, 255, 255, 0.7),     /* Intense neon blue glow */
+  0 0 50px rgba(0, 255, 255, 0.7),     /* Larger spread of the glow */
+  0 0 75px rgba(0, 255, 255, 0.7);     /* Wide, glowing effect */ /* Placeholder text matches neon color */
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#search-bar::placeholder {
+  color: #fff;
+  text-shadow: 
+  0 0 5px rgba(0, 255, 255, 0.7),      /* Soft blue glow */
+  0 0 10px rgba(0, 255, 255, 0.7),     /* Stronger blue glow */
+  0 0 20px rgba(0, 255, 255, 0.7),     /* More intense blue glow */
+  0 0 30px rgba(0, 255, 255, 0.7),     /* Even stronger blue glow */
+  0 0 40px rgba(0, 255, 255, 0.7),     /* Intense neon blue glow */
+  0 0 50px rgba(0, 255, 255, 0.7),     /* Larger spread of the glow */
+  0 0 75px rgba(0, 255, 255, 0.7);     /* Wide, glowing effect */ /* Placeholder text matches neon color */
+}
+
+#search-bar:focus {
+  background-color: rgba(30, 30, 30, 1); /* Slightly brighter on focus */
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.7),      /* Soft red glow */
+  0 0 10px rgba(255, 0, 0, 0.7),     /* Stronger red glow */
+  0 0 20px rgba(255, 0, 0, 0.7),     /* More intense red glow */
+  0 0 30px rgba(255, 0, 0, 0.7),     /* Even stronger red glow */
+  0 0 40px rgba(255, 0, 0, 0.7),     /* Intense neon red glow */
+  0 0 50px rgba(255, 0, 0, 0.7),     /* Larger spread of the glow */
+  0 0 75px rgba(255, 0, 0, 0.7);     /* Wide, glowing effect */
+}
+
 
 /* Container for the wrestlers (Grid layout with neon hover effect) */
 .wrestlers-container {
