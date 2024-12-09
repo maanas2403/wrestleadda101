@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Fetch the JSON file
-  fetch('WWE_Greatest_Wrestlers_List9.json')
+  fetch('WWE_Greatest_Wrestlers_List10.json')
     .then(response => response.text()) // Read as plain text
     .then(data => {
       const cleanData = cleanJSON(data);
