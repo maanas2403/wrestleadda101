@@ -1318,5 +1318,31 @@
         "Greatest Rival": "Chris Jericho",
         "Image Link": "https://www.wwe.com/f/styles/talent_champion_lg/public/rd-talent/Profile/William_Regal_pro.png",
         "Audio Link": "https://ia804605.us.archive.org/31/items/wwe-koko-b.-ware-1-the-bird/WWE%20-%20William%20Regal%203rd.mp3"
+    },
+    {
+        "Name": "Sin Cara",
+        "Date of Birth": "22/12/1982",
+        "Style of Wrestling": "High-flying, lucha libre",
+        "Finisher Move": "La Mistica (Tilt-a-whirl armbar)",
+        "Era": "PG Era",
+        "Greatest Match": "TLC 2011 match (with Rey Mysterio) vs. Cody Rhodes & Wade Barrett",
+        "Greatest Moment": "His debut match on Monday Night Raw 2011",
+        "Greatest Rival": "Hunico",
+        "Image Link": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/72697d02-b2f8-4f53-aec6-1cea9b46ce93/d6nakiw-1177207a-2924-4004-a77c-2b8ab2514071.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcyNjk3ZDAyLWIyZjgtNGY1My1hZWM2LTFjZWE5YjQ2Y2U5M1wvZDZuYWtpdy0xMTc3MjA3YS0yOTI0LTQwMDQtYTc3Yy0yYjhhYjI1MTQwNzEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.5dml5P5NzgjrTqUl_4EgvdjUI5zwt5Gr6CYxJx03NOw",
+        "Audio Link": "https://ia802909.us.archive.org/35/items/01wweancientspiritsincara/01%20WWE_%20Ancient%20Spirit%20%28Sin%20Cara%29.mp3"
+    
+    },
+    {
+        "Name": "The Great Khali",
+        "Date of Birth": "27/08/1972",
+        "Style of Wrestling": "Powerhouse, giant style",
+        "Finisher Move": "Punjabi Plunge",
+        "Era": "Ruthless Aggression Era",
+        "Greatest Match": "World Heavyweight Championship match vs. Batista & Kane (The Great American Bash 2007)",
+        "Greatest Moment": "Winning the World Heavyweight Championship in 2007",
+        "Greatest Rival": "Batista",
+        "Image Link": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1f2e3247-62d6-4d91-8b66-596cdde4d62b/degicd1-d9aff568-4a83-4160-a06c-a6c99d8246e1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFmMmUzMjQ3LTYyZDYtNGQ5MS04YjY2LTU5NmNkZGU0ZDYyYlwvZGVnaWNkMS1kOWFmZjU2OC00YTgzLTQxNjAtYTA2Yy1hNmM5OWQ4MjQ2ZTEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.2BQox1FsemoU2T9nLpQVv58aL4IF3cUYPDMGTE7YeBk",
+        "Audio Link": "https://raw.githubusercontent.com/maanas2403/wrestleadda101/main/khali.m4a"
+    
     }
 ]
