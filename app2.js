@@ -47,19 +47,29 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to show detailed information when a wrestler is clicked
   function showWrestlerDetails(wrestler) {
     wrestlerDetail.style.display = 'block';
-    wrestlerDetail.innerHTML = `
+    let youtubeEmbedURL = '';
+  if (wrestler['YouTube Link'] && wrestler['YouTube Link'].includes('watch?v=')) {
+    youtubeEmbedURL = wrestler['YouTube Link'].replace('watch?v=', 'embed/');
+  }
+
+  // Build the wrestler detail HTML
+  wrestlerDetail.innerHTML = `
     <div class="close-button">X</div>
     <div class="wrestler-info">
       <div class="wrestler-left">
-        <iframe 
-          width="100%" 
-          height="200" 
-          src="${wrestler['YouTube Link'].replace('watch?v=', 'embed/')}" 
-          title="${wrestler['Name']}" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+        ${
+          youtubeEmbedURL
+            ? `<iframe 
+                width="100%" 
+                height="200" 
+                src="${youtubeEmbedURL}" 
+                title="${wrestler['Name']}" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>`
+            : `<img src="${wrestler['Image Link']}" alt="${wrestler['Name']}">`
+        }
       </div>
       <div class="wrestler-right">
         <h2>${wrestler['Name']}</h2>
@@ -72,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <p><strong>Greatest Rival:</strong> ${wrestler['Greatest Rival']}</p>
       </div>
     </div>
-    `;
+  `;
 
     // Add the audio element and start playing the audio
     audioElement = new Audio(wrestler['Audio Link']);
