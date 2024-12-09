@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Fetch the JSON file
-  fetch('WWE_Greatest_Wrestlers_List11.json')
+  fetch('WWE_Greatest_Wrestlers_List12.json')
     .then(response => response.text()) // Read as plain text
     .then(data => {
       const cleanData = cleanJSON(data);
@@ -47,29 +47,40 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to show detailed information when a wrestler is clicked
   function showWrestlerDetails(wrestler) {
     wrestlerDetail.style.display = 'block';
-    let youtubeEmbedURL = '';
-  if (wrestler['YouTube Link'] && wrestler['YouTube Link'].includes('watch?v=')) {
-    youtubeEmbedURL = wrestler['YouTube Link'].replace('watch?v=', 'embed/');
-  }
+   const youtubeEmbedURL1 = wrestler['YouTube Link'] && wrestler['YouTube Link'].includes('watch?v=') 
+    ? wrestler['YouTube Link'].replace('watch?v=', 'embed/') 
+    : null;
+  const youtubeEmbedURL2 = wrestler['YouTube Link 2'] && wrestler['YouTube Link 2'].includes('watch?v=') 
+    ? wrestler['YouTube Link 2'].replace('watch?v=', 'embed/') 
+    : null;
 
   // Build the wrestler detail HTML
   wrestlerDetail.innerHTML = `
     <div class="close-button">X</div>
     <div class="wrestler-info">
       <div class="wrestler-left">
-        ${
-          youtubeEmbedURL
-            ? `<iframe 
-                width="100%" 
-                height="200" 
-                src="${youtubeEmbedURL}" 
-                title="${wrestler['Name']}" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-              </iframe>`
-            : `<img src="${wrestler['Image Link']}" alt="${wrestler['Name']}">`
-        }
+        <iframe 
+          id="video-player"
+          width="100%" 
+          height="200" 
+          src="${youtubeEmbedURL1 || ''}" 
+          title="${wrestler['Name']}" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        <div class="video-buttons">
+          ${
+            youtubeEmbedURL1
+              ? `<button id="video1-button" class="video-button">Video 1</button>`
+              : ''
+          }
+          ${
+            youtubeEmbedURL2
+              ? `<button id="video2-button" class="video-button">Video 2</button>`
+              : ''
+          }
+        </div>
       </div>
       <div class="wrestler-right">
         <h2>${wrestler['Name']}</h2>
@@ -84,9 +95,20 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   `;
 
-    // Add the audio element and start playing the audio
-    audioElement = new Audio(wrestler['Audio Link']);
-    audioElement.play();
+  // Add event listeners for the video buttons
+  const videoPlayer = document.getElementById('video-player');
+  if (youtubeEmbedURL1) {
+    const video1Button = document.getElementById('video1-button');
+    video1Button.addEventListener('click', () => {
+      videoPlayer.src = youtubeEmbedURL1;
+    });
+  }
+  if (youtubeEmbedURL2) {
+    const video2Button = document.getElementById('video2-button');
+    video2Button.addEventListener('click', () => {
+      videoPlayer.src = youtubeEmbedURL2;
+    });
+  }
 
     // Bind the close button after it's been added to the DOM
     const closeButton = wrestlerDetail.querySelector('.close-button');
