@@ -129,6 +129,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to close the wrestler details and stop the audio
   function closeWrestlerDetails() {
     wrestlerDetail.style.display = 'none';
+    const videoPlayer = document.getElementById('video-player');
+  if (videoPlayer) {
+    // Reset the iframe's src attribute to stop the video from playing
+    videoPlayer.src = videoPlayer.src; // This will stop the video by reloading the iframe
+  }
     if (audioElement) {
       audioElement.pause();
       audioElement.currentTime = 0; // Reset audio to the start
