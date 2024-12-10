@@ -117,12 +117,15 @@ body {
 
 .wrestler-box img {
   max-height: 200px;
-  width: auto;
+  width: 100%;
+  object-position: top;
+  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon glow */
   display: block; /* Prevent inline block rendering issues */
   will-change: transform, box-shadow; /* Optimize rendering */
   margin: 0 auto 10px;
+  overflow: hidden;
 }
 
 .wrestler-box h3 {
@@ -234,42 +237,61 @@ text-shadow:
 .wrestler-left {
   flex: 1;
   padding-right: 20px;
+  height: 500px;
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
 }
 
 .wrestler-left img {
 
-  max-width: 350px;
-  height: auto;
+  width: 100%;
+  max-height: 200px;
+  object-position: top;
+  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Neon glow */
+  margin-bottom: 10px;
+  overflow: hidden;
+  gap: 10px;
 }
 
 .wrestler-right {
   flex: 2;
   text-align: left;
   overflow-y: visible;
+  justify-content: center;
+  
+  align-items: center;
 }
+
 
 .video-slider {
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  margin-top: 10px;
+  margin-top: 15px;
   width: 200px;
   height: 40px;
-  background-color: #f0f0f0;
   border-radius: 20px;
+  background: linear-gradient(to right, #007bff, #ff0000);
   overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .slider-button {
+  font-family: 'Bangers', sans-serif;
+  font-size: 24px;
   flex: 1;
   z-index: 2;
   border: none;
   background: transparent;
-  font-size: 14px;
   font-weight: bold;
-  color: #333;
+  color: white;
   cursor: pointer;
+  outline: none;
 }
 
 .slider-indicator {
@@ -278,10 +300,17 @@ text-shadow:
   left: 0;
   width: 50%;
   height: 100%;
-  background-color: #007bff;
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   transition: transform 0.3s ease;
   z-index: 1;
+}
+.wrestler-name-left {
+  display: none;
+}
+
+.wrestler-name-right {
+  display: block;
 }
 
 /* Mobile View - Stack elements vertically */
@@ -301,7 +330,14 @@ text-shadow:
   .wrestler-info h2 {
     font-size: 2.5em; /* Adjust font size for mobile */
   }
+  .wrestler-name-right {
+    display: none;
+  }
 
+  /* Show the name in the left container and position it at the top */
+  .wrestler-name-left {
+    display: block;
+  }
   .wrestler-info p {
     font-size: 1.7em; /* Adjust paragraph size */
   }
@@ -309,12 +345,12 @@ text-shadow:
   .wrestler-left {
     padding-right: 0;
     margin-bottom: 10px; /* Add space between image and text */
+    align-items: center;
   }
 
-  .wrestler-left img {
-    max-width: 200px; /* Adjust image size for smaller screens */
+  .wrestler-left {
+    gap: 10px;
   }
-
   .wrestler-right {
     width: 90%;
     text-align: center; /* Center text in mobile view */
