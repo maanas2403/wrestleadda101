@@ -47,7 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to show detailed information when a wrestler is clicked
   function showWrestlerDetails(wrestler) {
     wrestlerDetail.style.display = 'block';
-   const youtubeEmbedURL1 = wrestler['YouTube Link'] && wrestler['YouTube Link'].includes('watch?v=') 
+      
+        // Ensure the YouTube links exist and are in the correct format
+        const youtubeEmbedURL1 = wrestler['YouTube Link'] && wrestler['YouTube Link'].includes('watch?v=') 
           ? wrestler['YouTube Link'].replace('watch?v=', 'embed/') 
           : null;
         const youtubeEmbedURL2 = wrestler['YouTube Link 2'] && wrestler['YouTube Link 2'].includes('watch?v=') 
@@ -59,6 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="close-button">X</div>
           <div class="wrestler-info">
             <div class="wrestler-left">
+            <h2 class="wrestler-name-left">${wrestler['Name']}</h2>
+            <img 
+          class="wrestler-image" 
+          src="${wrestler['Image Link']}" 
+          alt="${wrestler['Name']}" 
+        >
+       
               <iframe 
                 id="video-player"
                 width="100%" 
@@ -70,18 +79,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 allowfullscreen>
               </iframe>
               ${
+                `
+                   <div class="video-slider">
+                     <button id="video1-button" class="slider-button">Video 1</button>
+                     <button id="video2-button" class="slider-button">Video 2</button>
+                     <div id="slider-indicator" class="slider-indicator"></div>
+                   </div>
                  `
-                    <div class="video-slider">
-                      <button id="video1-button" class="slider-button">Video 1</button>
-                      <button id="video2-button" class="slider-button">Video 2</button>
-                      <div id="slider-indicator" class="slider-indicator"></div>
-                    </div>
-                  `
-                  
-              }
+                 
+             }
             </div>
             <div class="wrestler-right">
-              <h2>${wrestler['Name']}</h2>
+            <h2 class="wrestler-name-right">${wrestler['Name']}</h2>
               <p><strong>Date of Birth:</strong> ${formatDate(wrestler['Date of Birth'])}</p>
               <p><strong>Style of Wrestling:</strong> ${wrestler['Style of Wrestling']}</p>
               <p><strong>Finisher Move:</strong> ${wrestler['Finisher Move']}</p>
@@ -90,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <p><strong>Greatest Moment:</strong> ${wrestler['Greatest Moment']}</p>
               <p><strong>Greatest Rival:</strong> ${wrestler['Greatest Rival']}</p>
             </div>
+            
           </div>
         `;
       
@@ -110,10 +120,10 @@ document.addEventListener("DOMContentLoaded", function () {
             sliderIndicator.style.transform = 'translateX(100%)'; // Move indicator to the right
           });
         }
-
-    // Bind the close button after it's been added to the DOM
-    const closeButton = wrestlerDetail.querySelector('.close-button');
-    closeButton.addEventListener('click', closeWrestlerDetails);
+      
+        // Bind the close button after it's been added to the DOM
+        const closeButton = wrestlerDetail.querySelector('.close-button');
+        closeButton.addEventListener('click', closeWrestlerDetails);
   }
 
   // Function to close the wrestler details and stop the audio
