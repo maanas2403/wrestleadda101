@@ -48,67 +48,68 @@ document.addEventListener("DOMContentLoaded", function () {
   function showWrestlerDetails(wrestler) {
     wrestlerDetail.style.display = 'block';
    const youtubeEmbedURL1 = wrestler['YouTube Link'] && wrestler['YouTube Link'].includes('watch?v=') 
-    ? wrestler['YouTube Link'].replace('watch?v=', 'embed/') 
-    : null;
-  const youtubeEmbedURL2 = wrestler['YouTube Link 2'] && wrestler['YouTube Link 2'].includes('watch?v=') 
-    ? wrestler['YouTube Link 2'].replace('watch?v=', 'embed/') 
-    : null;
-
-  // Build the wrestler detail HTML
-  wrestlerDetail.innerHTML = `
-    <div class="close-button">X</div>
-    <div class="wrestler-info">
-      <div class="wrestler-left">
-        <iframe 
-          id="video-player"
-          width="100%" 
-          height="200" 
-          src="${youtubeEmbedURL1 || ''}" 
-          title="${wrestler['Name']}" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
-        <div class="video-buttons">
-          ${
-            youtubeEmbedURL1
-              ? `<button id="video1-button" class="video-button">Video 1</button>`
-              : ''
-          }
-          ${
-            youtubeEmbedURL2
-              ? `<button id="video2-button" class="video-button">Video 2</button>`
-              : ''
-          }
-        </div>
-      </div>
-      <div class="wrestler-right">
-        <h2>${wrestler['Name']}</h2>
-        <p><strong>Date of Birth:</strong> ${formatDate(wrestler['Date of Birth'])}</p>
-        <p><strong>Style of Wrestling:</strong> ${wrestler['Style of Wrestling']}</p>
-        <p><strong>Finisher Move:</strong> ${wrestler['Finisher Move']}</p>
-        <p><strong>Era:</strong> ${wrestler['Era']}</p>
-        <p><strong>Greatest Match:</strong> ${wrestler['Greatest Match']}</p>
-        <p><strong>Greatest Moment:</strong> ${wrestler['Greatest Moment']}</p>
-        <p><strong>Greatest Rival:</strong> ${wrestler['Greatest Rival']}</p>
-      </div>
-    </div>
-  `;
-
-  // Add event listeners for the video buttons
-  const videoPlayer = document.getElementById('video-player');
-  if (youtubeEmbedURL1) {
-    const video1Button = document.getElementById('video1-button');
-    video1Button.addEventListener('click', () => {
-      videoPlayer.src = youtubeEmbedURL1;
-    });
-  }
-  if (youtubeEmbedURL2) {
-    const video2Button = document.getElementById('video2-button');
-    video2Button.addEventListener('click', () => {
-      videoPlayer.src = youtubeEmbedURL2;
-    });
-  }
+          ? wrestler['YouTube Link'].replace('watch?v=', 'embed/') 
+          : null;
+        const youtubeEmbedURL2 = wrestler['YouTube Link 2'] && wrestler['YouTube Link 2'].includes('watch?v=') 
+          ? wrestler['YouTube Link 2'].replace('watch?v=', 'embed/') 
+          : null;
+      
+        // Build the wrestler detail HTML
+        wrestlerDetail.innerHTML = `
+          <div class="close-button">X</div>
+          <div class="wrestler-info">
+            <div class="wrestler-left">
+              <iframe 
+                id="video-player"
+                width="100%" 
+                height="200" 
+                src="${youtubeEmbedURL1 || ''}" 
+                title="${wrestler['Name']}" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+              ${
+                 `
+                    <div class="video-slider">
+                      <button id="video1-button" class="slider-button">Video 1</button>
+                      <button id="video2-button" class="slider-button">Video 2</button>
+                      <div id="slider-indicator" class="slider-indicator"></div>
+                    </div>
+                  `
+                  
+              }
+            </div>
+            <div class="wrestler-right">
+              <h2>${wrestler['Name']}</h2>
+              <p><strong>Date of Birth:</strong> ${formatDate(wrestler['Date of Birth'])}</p>
+              <p><strong>Style of Wrestling:</strong> ${wrestler['Style of Wrestling']}</p>
+              <p><strong>Finisher Move:</strong> ${wrestler['Finisher Move']}</p>
+              <p><strong>Era:</strong> ${wrestler['Era']}</p>
+              <p><strong>Greatest Match:</strong> ${wrestler['Greatest Match']}</p>
+              <p><strong>Greatest Moment:</strong> ${wrestler['Greatest Moment']}</p>
+              <p><strong>Greatest Rival:</strong> ${wrestler['Greatest Rival']}</p>
+            </div>
+          </div>
+        `;
+      
+        // Add event listeners for slider buttons
+        const videoPlayer = document.getElementById('video-player');
+        const sliderIndicator = document.getElementById('slider-indicator');
+        if (youtubeEmbedURL1 && youtubeEmbedURL2) {
+          const video1Button = document.getElementById('video1-button');
+          const video2Button = document.getElementById('video2-button');
+      
+          video1Button.addEventListener('click', () => {
+            videoPlayer.src = youtubeEmbedURL1;
+            sliderIndicator.style.transform = 'translateX(0%)'; // Move indicator to the left
+          });
+      
+          video2Button.addEventListener('click', () => {
+            videoPlayer.src = youtubeEmbedURL2;
+            sliderIndicator.style.transform = 'translateX(100%)'; // Move indicator to the right
+          });
+        }
 
     // Bind the close button after it's been added to the DOM
     const closeButton = wrestlerDetail.querySelector('.close-button');
